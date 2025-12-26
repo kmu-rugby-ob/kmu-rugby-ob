@@ -1,226 +1,88 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>関西医科大学ラグビー部OB会（会員限定）</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <title>関西医科大学ラグビー部OB会</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* ===== パスワード入力画面 ===== */
-    .login-wrapper {
-      max-width: 360px;
-      margin: 120px auto;
-      background: #ffffff;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      text-align: center;
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; margin: 0; line-height: 1.6; }
+    header, main, footer { max-width: 980px; margin: 0 auto; padding: 16px; }
+    header { padding-top: 24px; }
+    h1 { margin: 0 0 6px; font-size: 1.6rem; }
+    .subtitle { margin: 0; color: #555; }
+    section { margin: 18px 0; padding: 14px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; }
+    h2 { margin: 0 0 10px; font-size: 1.15rem; }
+    .btn {
+      display: inline-block; padding: 10px 14px; border-radius: 8px;
+      border: 1px solid #333; text-decoration: none; color: #111;
+      font-weight: 600;
     }
-
-    .login-wrapper input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    .login-wrapper button {
-      margin-top: 16px;
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-      background-color: #0b5b2b;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .hidden {
-      display: none;
-    }
+    .btn:hover { opacity: 0.9; }
+    .note { margin-top: 10px; font-size: 0.92rem; color: #555; }
+    iframe { width: 100%; border: none; }
+    footer { color: #666; font-size: 0.9rem; padding-bottom: 28px; }
+    .links a { display: inline-block; margin-right: 10px; }
   </style>
 </head>
 
 <body>
-
-<!-- ========================= -->
-<!-- ① パスワード入力画面 -->
-<!-- ========================= -->
-
-<div id="loginPage" class="login-wrapper">
-  <h2>OB会 会員専用ページ</h2>
-  <p>パスワードを入力してください。</p>
-
-  <input type="password" id="passwordInput" placeholder="パスワード">
-  <button onclick="checkPassword()">ログイン</button>
-
-  <p id="errorMessage" style="color:red; margin-top:12px;"></p>
-</div>
-
-<!-- ========================= -->
-<!-- ② ログイン後の実ページ -->
-<!-- ========================= -->
-
-<div id="realContent" class="hidden">
-
-  <!-- ヘッダー -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo">関西医科大学ラグビー部OB会</div>
-      <nav class="nav">
-        <a href="#news">お知らせ</a>
-        <a href="#about">OB会について</a>
-        <a href="#history">歴史・戦績</a>
-        <a href="#events">行事予定</a>
-        <a href="#gallery">写真</a>
-        <a href="magazine.html">部誌</a>
-        <a href="#contact">お問い合わせ</a>
-      </nav>
-    </div>
+  <header>
+    <h1>関西医科大学ラグビー部 OB会</h1>
+    <p class="subtitle">公式ホームページ</p>
   </header>
 
-  <!-- メインビジュアル -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1>関西医科大学ラグビー部OB会</h1>
-      <p>医学部ラグビーの伝統と誇りを、次の世代へ。</p>
+  <main>
 
-      <div class="hero-buttons">
-        <a href="magazine.html" class="btn-main">歴代の部誌を見る</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================= -->
-  <!-- OB総会 出席確認（追加） -->
-  <!-- ========================= -->
-
-  <section class="section bg-light">
-    <div class="container" style="text-align:center;">
-      <h2>OB総会 出席確認</h2>
+    <!-- ① OB会名簿用 連絡先入力フォームへのリンク -->
+    <section>
+      <h2>OB会 名簿用 連絡先確認・登録</h2>
+      <p>連絡先の確認・登録は、以下のフォームよりお願いいたします。</p>
       <p>
-        OB総会への出欠につきまして、オンラインフォームにて確認を行っております。<br>
-        下記ボタンよりご回答をお願いいたします。
+        <a class="btn"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSeCmVJEP1rfuQdIvcYm5URyk_26z0yZFeivVwO6i3mG4ubHJA/viewform?usp=publish-editor"
+           target="_blank" rel="noopener noreferrer">
+          ▶ 連絡先入力フォームを開く
+        </a>
       </p>
+      <p class="note">※入力内容はOB会の連絡・部誌送付等の目的に限り利用します。</p>
+    </section>
 
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSftuIo0PHO2qHyVyDwmG7qfKAvRCevszlMWopfFj7AuqxBk-A/viewform?usp=header"
-         target="_blank"
-         class="btn-main">
-        OB総会 出席確認
-      </a>
-    </div>
-  </section>
-
-  <!-- お知らせ -->
-  <section id="news" class="section">
-    <div class="container">
+    <!-- ② お知らせ：Googleスプレッドシート埋め込み -->
+    <section>
       <h2>お知らせ</h2>
+      <iframe
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2CNdb3UMpKUIb5k-WElzt-iv8sBftYOga0gkMO6jgciZNJNfLwVee0T2u8MajPtfjxQ22ESKh45Xi/pubhtml?gid=0&single=true&widget=true&headers=false"
+        height="340"
+        loading="lazy">
+      </iframe>
+      <p class="note">※お知らせはスプレッドシート更新だけで自動反映されます。</p>
+    </section>
 
-      <ul class="news-list">
-        <li>
-          <span class="date">2025.12.01</span>
-          <span class="title">2026年度OB総会・懇親会を開催予定です</span>
-        </li>
-        <li>
-          <span class="date">2025.10.05</span>
-          <span class="title">OB会WEBサイトを公開しました</span>
-        </li>
-      </ul>
-    </div>
-  </section>
+    <!-- ③ 活動予定：Googleカレンダー表示 -->
+    <section>
+      <h2>活動予定（練習・試合日程）</h2>
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=kmu.rugby.ob%40gmail.com&ctz=Asia%2FTokyo"
+        height="650"
+        loading="lazy">
+      </iframe>
+      <p class="note">※日程はGoogleカレンダー更新のみで自動反映されます。</p>
+    </section>
 
-  <!-- OB会について -->
-  <section id="about" class="section bg-light">
-    <div class="container">
-      <h2>OB会について</h2>
-      <p>
-        関西医科大学ラグビー部OB会は、母校ラグビー部の活動支援と、
-        OB・OG間の親睦を目的として運営されています。
+    <!-- ④ 部誌ページへのリンク -->
+    <section>
+      <h2>部誌</h2>
+      <p>部誌は下記ページよりご覧ください。</p>
+      <p class="links">
+        <a class="btn" href="bulletin.html">▶ 部誌公開ページへ</a>
       </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- 歴史 -->
-  <section id="history" class="section">
-    <div class="container">
-      <h2>ラグビー部の歴史</h2>
-      <ul class="history-list">
-        <li>19XX年　ラグビー部創部</li>
-        <li>20XX年　医学部リーグ 優勝</li>
-      </ul>
-    </div>
-  </section>
+  </main>
 
-  <!-- 行事 -->
-  <section id="events" class="section bg-light">
-    <div class="container">
-      <h2>行事予定</h2>
-      <table class="simple-table">
-        <tr><th>日付</th><th>行事</th></tr>
-        <tr><td>2026/03</td><td>OB総会</td></tr>
-        <tr><td>2026/08</td><td>OB戦</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- 写真 -->
-  <section id="gallery" class="section">
-    <div class="container">
-      <h2>写真ギャラリー</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item">写真</div>
-        <div class="gallery-item">写真</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- お問い合わせ -->
-  <section id="contact" class="section bg-light">
-    <div class="container">
-      <h2>お問い合わせ</h2>
-      <p class="contact-mail">ob-kmu-rugby@example.com</p>
-    </div>
-  </section>
-
-  <!-- フッター -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 関西医科大学ラグビー部OB会</p>
-    </div>
+  <footer>
+    <p>© 関西医科大学ラグビー部OB会</p>
   </footer>
-
-</div>
-
-<!-- ========================= -->
-<!-- ③ パスワード制御JS -->
-<!-- ========================= -->
-
-<script>
-function checkPassword() {
-  const input = document.getElementById("passwordInput").value;
-  const correctPassword = "kmu-rugby-makino"; // ★変更してください
-
-  if (input === correctPassword) {
-    document.getElementById("loginPage").style.display = "none";
-    document.getElementById("realContent").classList.remove("hidden");
-    localStorage.setItem("kmu_rugby_login", "true");
-  } else {
-    document.getElementById("errorMessage").textContent = "パスワードが違います。";
-  }
-}
-
-window.onload = function() {
-  if (localStorage.getItem("kmu_rugby_login") === "true") {
-    document.getElementById("loginPage").style.display = "none";
-    document.getElementById("realContent").classList.remove("hidden");
-  }
-};
-</script>
-
 </body>
 </html>
 

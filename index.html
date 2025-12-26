@@ -4,85 +4,285 @@
   <meta charset="UTF-8" />
   <title>関西医科大学ラグビー部OB会</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; margin: 0; line-height: 1.6; }
-    header, main, footer { max-width: 980px; margin: 0 auto; padding: 16px; }
-    header { padding-top: 24px; }
-    h1 { margin: 0 0 6px; font-size: 1.6rem; }
-    .subtitle { margin: 0; color: #555; }
-    section { margin: 18px 0; padding: 14px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; }
-    h2 { margin: 0 0 10px; font-size: 1.15rem; }
-    .btn {
-      display: inline-block; padding: 10px 14px; border-radius: 8px;
-      border: 1px solid #333; text-decoration: none; color: #111;
-      font-weight: 600;
+    :root{
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --text:#111;
+      --muted:#555;
+      --line:#e6e8ef;
+      --accent:#0b3a2a; /* 深いグリーン */
+      --accent2:#0f5132;
+      --btn:#111;
+      --radius:14px;
+      --shadow:0 10px 25px rgba(0,0,0,.06);
     }
-    .btn:hover { opacity: 0.9; }
-    .note { margin-top: 10px; font-size: 0.92rem; color: #555; }
-    iframe { width: 100%; border: none; }
-    footer { color: #666; font-size: 0.9rem; padding-bottom: 28px; }
-    .links a { display: inline-block; margin-right: 10px; }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP",
+                   "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.65;
+    }
+    a{ color:inherit; }
+    .container{
+      max-width:1080px;
+      margin:0 auto;
+      padding: 18px;
+    }
+
+    /* Header / Hero */
+    .hero{
+      background: linear-gradient(120deg, var(--accent), #0b2f66);
+      color:#fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-inner{
+      padding: 22px 18px;
+      display:grid;
+      gap:14px;
+      grid-template-columns: 1fr;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:.92rem;
+      opacity:.95;
+    }
+    .badge-dot{
+      width:10px; height:10px; border-radius:999px;
+      background:#fff;
+      opacity:.9;
+    }
+    h1{
+      margin:0;
+      font-size: 1.55rem;
+      letter-spacing:.02em;
+    }
+    .hero p{
+      margin:0;
+      color: rgba(255,255,255,.92);
+      font-size: .98rem;
+    }
+
+    /* Nav */
+    .nav{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .nav a{
+      text-decoration:none;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+    .nav a:hover{ background: rgba(255,255,255,.20); }
+
+    /* Layout */
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      gap:16px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 960px){
+      .grid{
+        grid-template-columns: 1fr 1fr;
+        align-items:start;
+      }
+    }
+
+    /* Cards */
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card-head{
+      padding:14px 14px 0;
+    }
+    .card-title{
+      margin:0;
+      font-size:1.12rem;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .icon{
+      width:28px; height:28px;
+      border-radius:10px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background: #f0f3ff;
+      border:1px solid #e5e9ff;
+      font-weight:900;
+    }
+    .card-body{ padding: 10px 14px 14px; }
+    .muted{ color: var(--muted); font-size: .95rem; margin: 6px 0 0; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      font-weight:800;
+      border-radius: 12px;
+      padding: 11px 14px;
+      border: 1px solid #111;
+      background:#fff;
+      margin-top: 10px;
+    }
+    .btn:hover{ opacity:.92; }
+    .btn.primary{
+      background:#111;
+      color:#fff;
+      border-color:#111;
+    }
+    .btn-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+
+    /* Embeds */
+    iframe{ width:100%; border:none; display:block; }
+    .embed-wrap{ padding: 12px 14px 14px; }
+    .embed-note{
+      padding: 0 14px 14px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .92rem;
+      text-align:center;
+      padding: 12px 0 6px;
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>関西医科大学ラグビー部 OB会</h1>
-    <p class="subtitle">公式ホームページ</p>
-  </header>
+  <div class="container">
 
-  <main>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="badge"><span class="badge-dot"></span>公式サイト（OB会運営）</div>
+        <h1>関西医科大学ラグビー部 OB会</h1>
+        <p>連絡先登録・お知らせ・活動予定・部誌をまとめてご案内します。</p>
 
-    <!-- ① OB会名簿用 連絡先入力フォームへのリンク -->
-    <section>
-      <h2>OB会 名簿用 連絡先確認・登録</h2>
-      <p>連絡先の確認・登録は、以下のフォームよりお願いいたします。</p>
-      <p>
-        <a class="btn"
-           href="https://docs.google.com/forms/d/e/1FAIpQLSeCmVJEP1rfuQdIvcYm5URyk_26z0yZFeivVwO6i3mG4ubHJA/viewform?usp=publish-editor"
-           target="_blank" rel="noopener noreferrer">
-          ▶ 連絡先入力フォームを開く
-        </a>
-      </p>
-      <p class="note">※入力内容はOB会の連絡・部誌送付等の目的に限り利用します。</p>
-    </section>
+        <!-- Quick Nav -->
+        <nav class="nav" aria-label="ページ内ナビゲーション">
+          <a href="#contact">連絡先登録</a>
+          <a href="#news">お知らせ</a>
+          <a href="#schedule">活動予定</a>
+          <a href="#bulletin">部誌</a>
+        </nav>
+      </div>
+    </header>
 
-    <!-- ② お知らせ：Googleスプレッドシート埋め込み -->
-    <section>
-      <h2>お知らせ</h2>
-      <iframe
-        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2CNdb3UMpKUIb5k-WElzt-iv8sBftYOga0gkMO6jgciZNJNfLwVee0T2u8MajPtfjxQ22ESKh45Xi/pubhtml?gid=0&single=true&widget=true&headers=false"
-        height="340"
-        loading="lazy">
-      </iframe>
-      <p class="note">※お知らせはスプレッドシート更新だけで自動反映されます。</p>
-    </section>
+    <!-- CONTENT GRID -->
+    <main class="grid">
 
-    <!-- ③ 活動予定：Googleカレンダー表示 -->
-    <section>
-      <h2>活動予定（練習・試合日程）</h2>
-      <iframe
-        src="https://calendar.google.com/calendar/embed?src=kmu.rugby.ob%40gmail.com&ctz=Asia%2FTokyo"
-        height="650"
-        loading="lazy">
-      </iframe>
-      <p class="note">※日程はGoogleカレンダー更新のみで自動反映されます。</p>
-    </section>
+      <!-- 左列：連絡先 + 部誌 -->
+      <div>
 
-    <!-- ④ 部誌ページへのリンク -->
-    <section>
-      <h2>部誌</h2>
-      <p>部誌は下記ページよりご覧ください。</p>
-      <p class="links">
-        <a class="btn" href="bulletin.html">▶ 部誌公開ページへ</a>
-      </p>
-    </section>
+        <!-- ① 連絡先フォーム -->
+        <section class="card" id="contact">
+          <div class="card-head">
+            <h2 class="card-title"><span class="icon">✉</span>OB会 名簿用 連絡先確認・登録</h2>
+            <p class="muted">住所やメール連絡希望など、該当する項目のみご入力ください。</p>
+          </div>
+          <div class="card-body">
+            <div class="btn-row">
+              <a class="btn primary"
+                 href="https://docs.google.com/forms/d/e/1FAIpQLSeCmVJEP1rfuQdIvcYm5URyk_26z0yZFeivVwO6i3mG4ubHJA/viewform?usp=publish-editor"
+                 target="_blank" rel="noopener noreferrer">
+                ▶ 連絡先入力フォームを開く
+              </a>
+            </div>
+            <p class="muted">※入力内容はOB会の連絡・部誌送付等の目的に限り利用します。</p>
+          </div>
+        </section>
 
-  </main>
+        <!-- ④ 部誌ページリンク -->
+        <section class="card" id="bulletin" style="margin-top:16px;">
+          <div class="card-head">
+            <h2 class="card-title"><span class="icon">📘</span>部誌</h2>
+            <p class="muted">最新号やアーカイブは部誌ページからご覧いただけます。</p>
+          </div>
+          <div class="card-body">
+            <div class="btn-row">
+              <a class="btn" href="bulletin.html">▶ 部誌公開ページへ</a>
+            </div>
+          </div>
+        </section>
 
-  <footer>
-    <p>© 関西医科大学ラグビー部OB会</p>
-  </footer>
+      </div>
+
+      <!-- 右列：お知らせ + 予定 -->
+      <div>
+
+        <!-- ② お知らせ（スプレッドシート埋め込み） -->
+        <section class="card" id="news">
+          <div class="card-head">
+            <h2 class="card-title"><span class="icon">🗞</span>お知らせ</h2>
+            <p class="muted">最新情報はスプレッドシート更新のみで自動反映されます。</p>
+          </div>
+
+          <div class="embed-wrap">
+            <iframe
+              src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2CNdb3UMpKUIb5k-WElzt-iv8sBftYOga0gkMO6jgciZNJNfLwVee0T2u8MajPtfjxQ22ESKh45Xi/pubhtml?gid=0&single=true&widget=true&headers=false"
+              height="320"
+              loading="lazy">
+            </iframe>
+          </div>
+          <div class="embed-note">※表示が切れる場合は、iframeの高さ（height）を少し増やしてください。</div>
+        </section>
+
+        <!-- ③ 活動予定（Googleカレンダー埋め込み） -->
+        <section class="card" id="schedule" style="margin-top:16px;">
+          <div class="card-head">
+            <h2 class="card-title"><span class="icon">📅</span>活動予定（練習・試合日程）</h2>
+            <p class="muted">日程はGoogleカレンダーの更新のみで自動反映されます。</p>
+          </div>
+
+          <div class="embed-wrap">
+            <iframe
+              src="https://calendar.google.com/calendar/embed?src=kmu.rugby.ob%40gmail.com&ctz=Asia%2FTokyo"
+              height="650"
+              loading="lazy">
+            </iframe>
+          </div>
+          <div class="embed-note">※スマホではスクロールが多くなるため、必要に応じて高さを調整してください。</div>
+        </section>
+
+      </div>
+
+    </main>
+
+    <footer>
+      © 関西医科大学ラグビー部OB会
+    </footer>
+
+  </div>
 </body>
 </html>
-

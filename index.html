@@ -7,14 +7,8 @@
 
   <style>
     :root{
-      --bg:#f5f7fb;
-      --card:#ffffff;
-      --text:#111;
-      --muted:#555;
-      --line:#e6e8ef;
-      --accent:#0b3a2a;
-      --shadow:0 10px 25px rgba(0,0,0,.06);
-      --radius:14px;
+      --bg:#f5f7fb; --card:#fff; --text:#111; --muted:#555; --line:#e6e8ef;
+      --accent:#0b3a2a; --shadow:0 10px 25px rgba(0,0,0,.06); --radius:14px;
     }
     *{ box-sizing:border-box; }
     body{
@@ -28,12 +22,10 @@
     a{ color:inherit; }
     .container{ max-width:1080px; margin:0 auto; padding: 18px; }
 
-    /* Gate (Password Screen) */
+    /* Gate */
     .gate{
       min-height: calc(100vh - 36px);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display:flex; align-items:center; justify-content:center;
     }
     .gate-card{
       width: min(560px, 100%);
@@ -52,90 +44,56 @@
     }
     .gate-hero h1{ margin:0; font-size:1.25rem; }
     .gate-hero p{ margin:6px 0 0; opacity:.92; font-size:.95rem; }
-    .field{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 10px;
-    }
+    .field{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
     input[type="password"]{
       flex: 1 1 240px;
-      padding: 12px 12px;
+      padding: 12px;
       border-radius: 10px;
       border:1px solid var(--line);
       font-size: 1rem;
     }
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      text-decoration:none;
-      font-weight:800;
+      display:inline-flex; align-items:center; justify-content:center;
+      text-decoration:none; font-weight:800;
       border-radius: 10px;
       padding: 12px 14px;
       border: 1px solid #111;
-      background:#111;
-      color:#fff;
+      background:#111; color:#fff;
       cursor:pointer;
     }
     .btn:hover{ opacity:.92; }
-    .msg{ margin:10px 0 0; color:#b00020; font-weight:700; }
+    .msg{ margin:10px 0 0; color:#b00020; font-weight:800; display:none; }
     .gate-note{ margin-top:10px; color:var(--muted); font-size:.92rem; }
 
-    /* Site content (hidden until unlocked) */
+    /* Site */
     .site{ display:none; }
 
     .hero{
       background: linear-gradient(120deg, var(--accent), #0b2f66);
-      color:#fff;
-      border-radius: var(--radius);
+      color:#fff; border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .hero-inner{
-      padding: 22px 18px;
-      display:grid;
-      gap:14px;
-      grid-template-columns: 1fr;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:.92rem;
-      opacity:.95;
-    }
+    .hero-inner{ padding: 22px 18px; display:grid; gap:14px; }
+    .badge{ display:inline-flex; align-items:center; gap:8px; font-size:.92rem; opacity:.95; }
     .badge-dot{ width:10px; height:10px; border-radius:999px; background:#fff; opacity:.9; }
     h1{ margin:0; font-size: 1.55rem; letter-spacing:.02em; }
     .hero p{ margin:0; color: rgba(255,255,255,.92); font-size: .98rem; }
 
-    .nav{
-      margin-top: 12px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
+    .nav{ margin-top: 12px; display:flex; flex-wrap:wrap; gap:10px; }
     .nav a{
       text-decoration:none;
       background: rgba(255,255,255,.14);
       border: 1px solid rgba(255,255,255,.22);
       padding: 10px 12px;
       border-radius: 999px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: .95rem;
     }
     .nav a:hover{ background: rgba(255,255,255,.20); }
 
-    .grid{
-      margin-top: 18px;
-      display:grid;
-      gap:16px;
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 960px){
-      .grid{ grid-template-columns: 1fr 1fr; align-items:start; }
-    }
+    .grid{ margin-top: 18px; display:grid; gap:16px; grid-template-columns: 1fr; }
+    @media (min-width: 960px){ .grid{ grid-template-columns: 1fr 1fr; align-items:start; } }
 
     .card{
       background:var(--card);
@@ -145,44 +103,26 @@
       overflow:hidden;
     }
     .card-head{ padding:14px 14px 0; }
-    .card-title{
-      margin:0;
-      font-size:1.12rem;
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
+    .card-title{ margin:0; font-size:1.12rem; display:flex; gap:10px; align-items:center; }
     .icon{
       width:28px; height:28px;
       border-radius:10px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background: #f0f3ff;
-      border:1px solid #e5e9ff;
+      display:inline-flex; align-items:center; justify-content:center;
+      background: #f0f3ff; border:1px solid #e5e9ff;
       font-weight:900;
     }
     .card-body{ padding: 10px 14px 14px; }
     .muted{ color: var(--muted); font-size: .95rem; margin: 6px 0 0; }
-
     .btnlink{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      text-decoration:none;
-      font-weight:800;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      text-decoration:none; font-weight:900;
       border-radius: 12px;
       padding: 11px 14px;
       border: 1px solid #111;
       background:#fff;
       margin-top: 10px;
     }
-    .btnlink.primary{
-      background:#111;
-      color:#fff;
-      border-color:#111;
-    }
+    .btnlink.primary{ background:#111; color:#fff; border-color:#111; }
     .btnlink:hover{ opacity:.92; }
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
 
@@ -190,20 +130,14 @@
     .embed-wrap{ padding: 12px 14px 14px; }
     .embed-note{ padding: 0 14px 14px; color: var(--muted); font-size: .92rem; }
 
-    footer{
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: .92rem;
-      text-align:center;
-      padding: 12px 0 6px;
-    }
+    footer{ margin-top: 18px; color: var(--muted); font-size: .92rem; text-align:center; padding: 12px 0 6px; }
   </style>
 </head>
 
 <body>
   <div class="container">
 
-    <!-- ===== Password Gate ===== -->
+    <!-- Gate -->
     <div class="gate" id="gate">
       <div class="gate-card">
         <div class="gate-hero">
@@ -216,24 +150,22 @@
           <input id="pw" type="password" placeholder="パスワードを入力" autocomplete="current-password" />
           <button class="btn" id="btnEnter" type="button">入室</button>
         </div>
-        <div class="msg" id="msg" style="display:none;">パスワードが違います。</div>
+        <div class="msg" id="msg">パスワードが違います。</div>
         <div class="gate-note">
-          ※パスワードは関係者のみに共有してください。<br>
-          
+          ※本サイトの閲覧制限は「簡易的なゲート」です（厳密な認証ではありません）。<br>
+          ※この端末では、当日中は再入力不要（翌日になったら再入力）となります。
         </div>
       </div>
     </div>
 
-    <!-- ===== Site Content (hidden until unlocked) ===== -->
+    <!-- Site -->
     <div class="site" id="site">
 
-      <!-- HERO -->
       <header class="hero">
         <div class="hero-inner">
           <div class="badge"><span class="badge-dot"></span>公式サイト（OB会運営）</div>
           <h1>関西医科大学ラグビー部 OB会</h1>
           <p>連絡先登録・お知らせ・活動予定・部誌をまとめてご案内します。</p>
-
           <nav class="nav" aria-label="ページ内ナビゲーション">
             <a href="#contact">連絡先登録</a>
             <a href="#news">お知らせ</a>
@@ -245,10 +177,7 @@
 
       <main class="grid">
 
-        <!-- Left: Contact + Bulletin -->
         <div>
-
-          <!-- ① 連絡先フォーム -->
           <section class="card" id="contact">
             <div class="card-head">
               <h2 class="card-title"><span class="icon">✉</span>OB会 名簿用 連絡先確認・登録</h2>
@@ -266,11 +195,10 @@
             </div>
           </section>
 
-          <!-- ④ 部誌ページリンク -->
           <section class="card" id="bulletin" style="margin-top:16px;">
             <div class="card-head">
               <h2 class="card-title"><span class="icon">📘</span>部誌</h2>
-              <p class="muted">最新号やアーカイブは部誌ページからご覧いただけます。</p>
+              <p class="muted">部誌は部誌ページからご覧いただけます（PDFはGitHubに置くだけで更新）。</p>
             </div>
             <div class="card-body">
               <div class="btn-row">
@@ -278,19 +206,14 @@
               </div>
             </div>
           </section>
-
         </div>
 
-        <!-- Right: News + Schedule -->
         <div>
-
-          <!-- ② お知らせ -->
           <section class="card" id="news">
             <div class="card-head">
               <h2 class="card-title"><span class="icon">🗞</span>お知らせ</h2>
               <p class="muted">最新情報はスプレッドシート更新のみで自動反映されます。</p>
             </div>
-
             <div class="embed-wrap">
               <iframe
                 src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT2CNdb3UMpKUIb5k-WElzt-iv8sBftYOga0gkMO6jgciZNJNfLwVee0T2u8MajPtfjxQ22ESKh45Xi/pubhtml?gid=0&single=true&widget=true&headers=false"
@@ -301,13 +224,11 @@
             <div class="embed-note">※表示が切れる場合は、iframeの高さ（height）を少し増やしてください。</div>
           </section>
 
-          <!-- ③ 活動予定 -->
           <section class="card" id="schedule" style="margin-top:16px;">
             <div class="card-head">
               <h2 class="card-title"><span class="icon">📅</span>活動予定（練習・試合日程）</h2>
               <p class="muted">日程はGoogleカレンダーの更新のみで自動反映されます。</p>
             </div>
-
             <div class="embed-wrap">
               <iframe
                 src="https://calendar.google.com/calendar/embed?src=kmu.rugby.ob%40gmail.com&ctz=Asia%2FTokyo"
@@ -317,21 +238,18 @@
             </div>
             <div class="embed-note">※スマホではスクロールが多くなるため、必要に応じて高さを調整してください。</div>
           </section>
-
         </div>
 
       </main>
 
-      <footer>
-        © 関西医科大学ラグビー部OB会
-      </footer>
-
+      <footer>© 関西医科大学ラグビー部OB会</footer>
     </div>
   </div>
 
   <script>
     // ====== Settings ======
-    const PASSWORD = "kmu-rugby-makino"; // ★ここを書き換えてください（例：kmuOB2025 など）
+    const PASSWORD = "CHANGE_THIS_PASSWORD"; // ★ここを書き換え
+    const KEY = "kmu_ob_unlocked_until";     // 保存キー（今日の終わりまで）
 
     // ====== Elements ======
     const gate = document.getElementById("gate");
@@ -340,34 +258,34 @@
     const msg = document.getElementById("msg");
     const btnEnter = document.getElementById("btnEnter");
 
-    // ====== Helpers ======
-    function unlock() {
-      gate.style.display = "none";
-      site.style.display = "block";
+    function todayEndTimestamp() {
+      const now = new Date();
+      const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
+      return end.getTime();
     }
-    function fail() {
-      msg.style.display = "block";
-      pw.select();
+    function unlock() { gate.style.display = "none"; site.style.display = "block"; }
+    function lock() { gate.style.display = "flex"; site.style.display = "none"; }
+
+    function checkAutoUnlock() {
+      const until = Number(localStorage.getItem(KEY) || 0);
+      if (until && Date.now() <= until) unlock();
+      else { localStorage.removeItem(KEY); lock(); }
     }
+
     function tryEnter() {
       msg.style.display = "none";
       if ((pw.value || "").trim() === PASSWORD) {
-        // 簡易的に「この端末では次回以降パスワード不要」にしたい場合は下を有効化
-        // localStorage.setItem("kmu_ob_unlocked", "1");
+        localStorage.setItem(KEY, String(todayEndTimestamp()));
         unlock();
       } else {
-        fail();
+        msg.style.display = "block";
+        pw.select();
       }
     }
 
-    // Optional: remember unlocked state (disabled by default)
-    // if (localStorage.getItem("kmu_ob_unlocked") === "1") unlock();
-
+    checkAutoUnlock();
     btnEnter.addEventListener("click", tryEnter);
-    pw.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") tryEnter();
-    });
+    pw.addEventListener("keydown", (e) => { if (e.key === "Enter") tryEnter(); });
   </script>
 </body>
 </html>
-

@@ -5,55 +5,178 @@
   <title>部誌｜関西医科大学ラグビー部OB会</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; margin: 0; line-height: 1.6; }
+    :root{ --bg:#f5f7fb; --card:#fff; --line:#e6e8ef; --text:#111; --muted:#555; --shadow:0 10px 25px rgba(0,0,0,.06); --radius:14px; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; margin:0; line-height:1.6; background:var(--bg); color:var(--text); }
     header, main, footer { max-width: 980px; margin: 0 auto; padding: 16px; }
     header { padding-top: 24px; }
     h1 { margin: 0 0 10px; font-size: 1.4rem; }
     a { color: #111; }
-    .btn {
-      display: inline-block; padding: 10px 14px; border-radius: 8px;
-      border: 1px solid #333; text-decoration: none; color: #111;
-      font-weight: 600;
+    .card { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:14px; }
+    .muted{ color:var(--muted); font-size:.95rem; margin:6px 0 0; }
+
+    .year-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+      margin-top: 14px;
     }
-    section { margin: 18px 0; padding: 14px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; }
-    iframe { width: 100%; border: none; }
-    .note { margin-top: 10px; font-size: 0.92rem; color: #555; }
-    footer { color: #666; font-size: 0.9rem; padding-bottom: 28px; }
+    .year-head{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .year-title{
+      margin:0;
+      font-size: 1.12rem;
+      font-weight: 900;
+    }
+    .row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px; border-radius: 10px;
+      border: 1px solid #111; background:#111; color:#fff;
+      font-weight:900; text-decoration:none; cursor:pointer;
+    }
+    .btn.secondary{ background:#fff; color:#111; }
+    .btn:hover{ opacity:.92; }
+
+    iframe { width: 100%; border: none; display:block; margin-top:12px; background:#fff; border-radius:12px; }
+    footer { color:#666; font-size:.9rem; padding-bottom: 28px; text-align:center; }
+    code{ background:#eef2ff; padding:2px 6px; border-radius:6px; }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>OB会 部誌</h1>
+    <h1>OB会 部誌（過去5年分）</h1>
     <p><a href="index.html">← トップページへ戻る</a></p>
   </header>
 
   <main>
-
-    <section>
-      <h2>2025年 部誌（サンプル）</h2>
-
-      <!-- Google Drive PDF Preview -->
-      <iframe
-        src="https://drive.google.com/file/d/1prREY6L5mkepIOD6OSJsYNEkJTIE9ZIF/preview"
-        height="900"
-        loading="lazy">
-      </iframe>
-
-      <p class="note">
-        ※スマートフォン等で表示しづらい場合は、下記より別ウィンドウで開いてください。<br />
-        <a class="btn"
-           href="https://drive.google.com/file/d/1prREY6L5mkepIOD6OSJsYNEkJTIE9ZIF/view"
-           target="_blank" rel="noopener noreferrer">
-          ▶ PDFを別ウィンドウで開く
-        </a>
+    <section class="card">
+      <h2 style="margin:0 0 6px;">閲覧方法</h2>
+      <p class="muted">
+        「ページ内で表示」を押すと、このページ内にPDFを表示します。スマホ等で見づらい場合は「別ウィンドウで開く」をご利用ください。
       </p>
+      <p class="muted">
+        【更新（B運用）】各年のPDFを <code>magazines/年.pdf</code> と同じ名前で上書き → GitHub DesktopでCommit→Push で反映されます。
+      </p>
+    </section>
+
+    <!-- ===== 2025 ===== -->
+    <section class="year-card" data-pdf="magazines/2025.pdf">
+      <div class="year-head">
+        <h3 class="year-title">2025年 部誌</h3>
+        <span class="muted">（PDF）</span>
+      </div>
+
+      <div class="row">
+        <button class="btn js-toggle" type="button">▶ ページ内で表示</button>
+        <a class="btn secondary js-open" href="magazines/2025.pdf" target="_blank" rel="noopener noreferrer">別ウィンドウで開く</a>
+      </div>
+
+      <div class="pdfArea" style="display:none;">
+        <iframe class="pdfFrame" src="about:blank" height="900" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- ===== 2024 ===== -->
+    <section class="year-card" data-pdf="magazines/2024.pdf">
+      <div class="year-head">
+        <h3 class="year-title">2024年 部誌</h3>
+        <span class="muted">（PDF）</span>
+      </div>
+
+      <div class="row">
+        <button class="btn js-toggle" type="button">▶ ページ内で表示</button>
+        <a class="btn secondary js-open" href="magazines/2024.pdf" target="_blank" rel="noopener noreferrer">別ウィンドウで開く</a>
+      </div>
+
+      <div class="pdfArea" style="display:none;">
+        <iframe class="pdfFrame" src="about:blank" height="900" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- ===== 2023 ===== -->
+    <section class="year-card" data-pdf="magazines/2023.pdf">
+      <div class="year-head">
+        <h3 class="year-title">2023年 部誌</h3>
+        <span class="muted">（PDF）</span>
+      </div>
+
+      <div class="row">
+        <button class="btn js-toggle" type="button">▶ ページ内で表示</button>
+        <a class="btn secondary js-open" href="magazines/2023.pdf" target="_blank" rel="noopener noreferrer">別ウィンドウで開く</a>
+      </div>
+
+      <div class="pdfArea" style="display:none;">
+        <iframe class="pdfFrame" src="about:blank" height="900" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- ===== 2022 ===== -->
+    <section class="year-card" data-pdf="magazines/2022.pdf">
+      <div class="year-head">
+        <h3 class="year-title">2022年 部誌</h3>
+        <span class="muted">（PDF）</span>
+      </div>
+
+      <div class="row">
+        <button class="btn js-toggle" type="button">▶ ページ内で表示</button>
+        <a class="btn secondary js-open" href="magazines/2022.pdf" target="_blank" rel="noopener noreferrer">別ウィンドウで開く</a>
+      </div>
+
+      <div class="pdfArea" style="display:none;">
+        <iframe class="pdfFrame" src="about:blank" height="900" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- ===== 2021 ===== -->
+    <section class="year-card" data-pdf="magazines/2021.pdf">
+      <div class="year-head">
+        <h3 class="year-title">2021年 部誌</h3>
+        <span class="muted">（PDF）</span>
+      </div>
+
+      <div class="row">
+        <button class="btn js-toggle" type="button">▶ ページ内で表示</button>
+        <a class="btn secondary js-open" href="magazines/2021.pdf" target="_blank" rel="noopener noreferrer">別ウィンドウで開く</a>
+      </div>
+
+      <div class="pdfArea" style="display:none;">
+        <iframe class="pdfFrame" src="about:blank" height="900" loading="lazy"></iframe>
+      </div>
     </section>
 
   </main>
 
-  <footer>
-    <p>© 関西医科大学ラグビー部OB会</p>
-  </footer>
+  <footer>© 関西医科大学ラグビー部OB会</footer>
+
+  <script>
+    // 各年カード：開閉ロジック（共通）
+    document.querySelectorAll(".year-card").forEach((card) => {
+      const pdfUrl = card.getAttribute("data-pdf");
+      const btn = card.querySelector(".js-toggle");
+      const area = card.querySelector(".pdfArea");
+      const frame = card.querySelector(".pdfFrame");
+
+      btn.addEventListener("click", () => {
+        const opened = area.style.display === "block";
+        if (!opened) {
+          frame.src = pdfUrl;          // 押した時に初めて読み込む
+          area.style.display = "block";
+          btn.textContent = "▲ 閉じる";
+        } else {
+          frame.src = "about:blank";   // 閉じると読み込み停止
+          area.style.display = "none";
+          btn.textContent = "▶ ページ内で表示";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
